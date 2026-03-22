@@ -10,7 +10,7 @@ O **web-path-brute-forcer** mapeia a superfície de ataque de aplicações web, 
 * **Automação HTTP:** Realiza requisições assíncronas simples utilizando a biblioteca `requests`.
 * **Tratamento de Erros:** Gerencia falhas de conexão e timeouts durante a varredura.
 
-## 🛠️ Tecnologias e Ferramentas
+## 🛠️ Tecnologias 
 * **Linguagem:** Python 3.x
 * **Gerenciador de Dependências:** [Poetry](https://python-poetry.org/)
 * **Biblioteca Principal:** `requests`
