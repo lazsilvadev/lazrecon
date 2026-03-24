@@ -26,11 +26,13 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 * **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
 
 ## 🛠️ Tecnologias
-* **Python 3.x** 
-* **Flet** (Interface Gráfica)
-* **Requests** (Engine HTTP)
-* **FPDF** (Gerador de Relatórios)
-* **Gestão de Dependências:** Poetry
+*As principais ferramentas utilizadas no desenvolvimento do LazRecon:*
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flet](https://img.shields.io/badge/Flet-42a5f5?style=for-the-badge&logo=flutter&logoColor=white)
+![Requests](https://img.shields.io/badge/Requests-FFD43B?style=for-the-badge&logo=python&logoColor=black)
+![FPDF](https://img.shields.io/badge/FPDF-E91E63?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)
+![Poetry](https://img.shields.io/badge/Poetry-60A5FA?style=for-the-badge&logo=python&logoColor=white)
 
 ## 📋 Como Instalar e Usar
 
