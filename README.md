@@ -37,8 +37,8 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ## 📋 Como Instalar e Usar
 
 ### 1. Pré-requisitos
-* Python 3.10 ou superior
-* [Poetry](https://python-poetry.org/docs/#installation) instalado
+* *Python 3.10 ou superior*
+* [Poetry](https://python-poetry.org/docs/#installation) *instalado*
 
 ### 1.1 Clonar o Repositório  
 ```bash
