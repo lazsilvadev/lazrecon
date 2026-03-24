@@ -41,6 +41,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ### 1.1 Clonar o Repositório  
 ```bash
 git clone https://github.com/lazsilvadev/lazrecon.git
+cd lazrecon  # Entre na pasta do projeto
 ```
 ### Usando Poetry (Recomendado)
 ```bash
