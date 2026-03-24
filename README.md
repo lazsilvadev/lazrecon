@@ -49,7 +49,7 @@ poetry install # Instale as dependências
 
 poetry run python lazrecon.py # Inicie a GUI
 ```
-### Opção 2: Usando Pip (Tradicional)
+### 1.3 Usando Pip (Tradicional)
 ```bash
 python -m venv venv # Cria e ativa o ambiente virtual
 
