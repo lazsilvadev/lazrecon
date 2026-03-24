@@ -1,17 +1,24 @@
-[project]
-name = "web-path-brute-forcer"
-version = "0.1.0"
-description = "Script Python para reconhecimento web e mapeamento de caminhos (Path Discovery)."
-authors = [
-    {name = "lazsilvadev",email = "lazsilvadev@gmail.com"}
-]
+[tool.poetry]
+name = "lazrecon"
+version = "1.1.0"
+description = "Ferramenta de reconhecimento web e fuzzing de diretórios com interface gráfica moderna."
+authors = ["Laz Silva <lazsilvadev@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "requests (>=2.32.5,<3.0.0)"
-]
 
+packages = [{include = "lazrecon.py"}] 
+
+# package-mode = false 
+
+[tool.poetry.dependencies]
+python = ">=3.13"
+flet = "0.28.3"
+requests = "^2.32.3"
+fpdf = "^1.7.2"
+
+[tool.poetry.scripts]
+
+lazrecon = "lazrecon:main" 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
