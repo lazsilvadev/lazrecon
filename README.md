@@ -43,7 +43,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 git clone https://github.com/lazsilvadev/lazrecon.git
 cd lazrecon  # Entre na pasta do projeto
 ```
-### Usando Poetry (Recomendado)
+### 1.2 Usando Poetry (Recomendado)
 ```bash
 poetry install # Instale as dependências
 
@@ -59,5 +59,5 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt # Instale as dependências
 python lazrecon.py # Inicie a GUI
 ```
-### ⚠️ Aviso Legal (Disclaimer)
+## ⚠️ Aviso Legal (Disclaimer)
 Este projeto foi desenvolvido exclusivamente para fins educacionais e de estudo. O uso desta ferramenta em sistemas sem autorização prévia é ilegal e de inteira responsabilidade do usuário. **Use com ética.**
