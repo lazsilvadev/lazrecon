@@ -9,7 +9,8 @@
   <img src="https://img.shields.io/badge/status-active-success" alt="Status">
 </p>
 
-**LazRecon** é uma ferramenta de reconhecimento ativo e fuzzer de caminhos web. 
+## 🕵️‍♂️ About
+**LazRecon** é uma ferramenta de reconhecimento ativo e fuzzer de caminhos web (Web Path Reconnaissance).
 
 > 💡 **Origem:** O projeto nasceu de um script pessoal desenvolvido para automatizar e facilitar o mapeamento de diretórios, evoluindo para uma aplicação estável com interface gráfica (GUI) e suporte a relatórios técnicos.
 ---
@@ -20,7 +21,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ## 🚀 O que ele faz?
 
 * 🚦 **Mapeamento Multi-status:** Identifica rotas ativas (200 OK) e restritas (403 Forbidden).
-* 🕵️ **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e backups.
+* 🔍 **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e backups.
 * 📝 **Customização de Wordlists:** Liberdade total para o usuário carregar suas próprias listas de termos (.txt), permitindo ataques direcionados e maior precisão.
 * 🎭 **User-Agent Spoofing:** Técnicas para contornar bloqueios básicos de WAF.
 * 📊 **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
@@ -61,5 +62,5 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt # Instale as dependências
 python lazrecon.py # Inicie a GUI
 ```
-## ⚠️ Aviso Legal (Disclaimer)
+## ⚖️ Aviso Legal (Disclaimer)
 Este projeto foi desenvolvido exclusivamente para fins educacionais e de estudo. O uso desta ferramenta em sistemas sem autorização prévia é ilegal e de inteira responsabilidade do usuário. **Use com ética.**
