@@ -1,7 +1,7 @@
  # LazRecon
  
 <p align="center">
-  <img src="lazreconscreenshot.jpg" alt="Interface do LazRecon v1.1" width="700">
+  <img src="screenshotlazrecon.jpg" alt="Interface do LazRecon v1.1" width="700">
 </p>
 
 <p align="center">
