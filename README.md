@@ -1,7 +1,7 @@
- # 🕵️ LazRecon
+ # LazRecon
  
 <p align="center">
-  <img src="lazrecon.jpg" alt="Interface do LazRecon v1.1" width="700">
+  <img src="lazreconscreenshot.jpg" alt="Interface do LazRecon v1.1" width="700">
 </p>
 
 <p align="center">
