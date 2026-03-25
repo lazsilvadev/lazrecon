@@ -19,13 +19,13 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 
 ## 🚀 O que ele faz?
 
-* **Mapeamento Multi-status:** Identifica rotas ativas (200 OK) e restritas (403 Forbidden).
-* **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e backups.
-* **Customização de Wordlists:** Liberdade total para o usuário carregar suas próprias listas de termos (.txt), permitindo ataques direcionados e maior precisão.
-* **User-Agent Spoofing:** Técnicas para contornar bloqueios básicos de WAF.
-* **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
+* 🚦 **Mapeamento Multi-status:** Identifica rotas ativas (200 OK) e restritas (403 Forbidden).
+* 🕵️ **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e backups.
+* 📝 **Customização de Wordlists:** Liberdade total para o usuário carregar suas próprias listas de termos (.txt), permitindo ataques direcionados e maior precisão.
+* 🎭 **User-Agent Spoofing:** Técnicas para contornar bloqueios básicos de WAF.
+* 📊 **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
 
-## 🛠️ Tecnologias
+## ✨ Tecnologias
 *Utilizadas no desenvolvimento do **LazRecon:***
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -34,7 +34,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ![FPDF](https://img.shields.io/badge/FPDF-E91E63?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)
 ![Poetry](https://img.shields.io/badge/Poetry-60A5FA?style=for-the-badge&logo=python&logoColor=white)
 
-## 📋 Como Instalar e Usar
+## ⚙️ Como Instalar e Usar
 
 ### 1. Pré-requisitos
 * *Python 3.10 ou superior*
