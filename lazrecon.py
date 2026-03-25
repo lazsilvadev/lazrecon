@@ -3,17 +3,66 @@ import requests
 import threading
 import webbrowser
 import os
+import sys
 import datetime
 import re
 from fpdf import FPDF
+import ctypes
+
+# Esse trecho é para garantir o ícone da ferramenta fique agrupado corretamente na barra de tarefas do Windows.
+if sys.platform == "win32":
+    my_app_id = "laz.recon.fuzzer.v1"
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
 
 
 def main(page: ft.Page):
-    page.title = "LazRecon"
+    page.title = "LazRecon v1.1 - Web Path Reconnaissance Tool"
     page.theme_mode = ft.ThemeMode.DARK
-    page.window_width = 700
-    page.window_height = 850
-    page.padding = 20
+
+    # Definir tamanho inicial e travar tamanho (não redimensionável)
+    page.window.width = 700  # Largura fixa
+    page.window.height = 880  # Altura fixa
+    page.window.resizable = False  # Trava o tamanho (impede esticar)
+    page.window.maximizable = False  # Desativa o botão de maximizar
+
+    # 3. Centraliza a janela ao abrir
+    # Nem todas as versões/ambientes do Flet expõem `window_center` —
+    # use hasattr para evitar AttributeError em runtime.
+    if hasattr(page, "window_center"):
+        try:
+            page.window_center()
+        except Exception:
+            pass
+
+    # Código da interface
+    page.add(ft.Text(""))
+    # Impedir que o usuário redimensione ou maximize a janela
+    page.window_resizable = False
+    try:
+        page.window_maximizable = False
+    except Exception:
+        pass
+
+    page.window_icon = "lazrecon.png"  # Tentativa de definir ícone via atributo específico (pode ser ignorado em alguns sistemas)
+    header_image_src = "/lazrecon.png"
+
+    # Helper para resolver caminhos de assets em dev e quando empacotado (PyInstaller/_MEIPASS)
+    def get_asset_path(rel_path: str) -> str:
+        if getattr(sys, "frozen", False):
+            base = getattr(sys, "_MEIPASS", os.path.dirname(__file__))
+        else:
+            base = os.path.dirname(__file__)
+        return os.path.join(base, rel_path)
+
+    # Definir ícone da janela / barra de tarefas (usa assets_dir do ft.app)
+    icon_path = get_asset_path("icon.ico")
+    for _attr in ("window_icon", "app_icon", "icon"):
+        try:
+            if hasattr(page, _attr):
+                setattr(page, _attr, icon_path)
+        except Exception:
+            # Silencioso: continua se atributo não suportado
+            pass
 
     # Wordlist padrão (fallback)
     default_wordlist = [
@@ -128,7 +177,7 @@ def main(page: ft.Page):
 
     # --- FUNÇÕES DE LÓGICA ---
 
-    # Configuração de spoofing (mantida do gui_brute4)
+    # Configuração de spoofing de headers para parecer um navegador real (evitar bloqueios básicos)
     browser_headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -484,8 +533,10 @@ def main(page: ft.Page):
     page.add(
         ft.Row(
             [
-                ft.Text("🕵️‍♂️", size=35),
-                ft.Text("LazRecon v1.1", size=25, weight="bold"),
+                ft.Image(
+                    src=header_image_src, width=36, height=36, fit=ft.ImageFit.CONTAIN
+                ),
+                ft.Text("LazRecon", size=25, weight="bold"),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
         ),
@@ -515,27 +566,36 @@ def main(page: ft.Page):
         ft.Row([btn_pdf], alignment=ft.MainAxisAlignment.CENTER),
         ft.Row(
             [
-                ft.Text(
-                    "⚠️ Use com responsabilidade em sistemas autorizados.",
-                    color=ft.Colors.WHITE,
-                    size=12,
+                ft.Row(
+                    controls=[
+                        ft.Text(
+                            "⚠️ Use com responsabilidade em sistemas autorizados.",  # Aviso de uso responsável
+                            size=11,
+                            color=ft.Colors.BLUE_GREY_200,
+                        ),
+                        ft.TextButton(
+                            content=ft.Text(
+                                "Saiba Mais © 2026",
+                                size=11,
+                                color=ft.Colors.BLUE_GREY_200,
+                            ),
+                            on_click=lambda _: page.launch_url(
+                                "https://github.com/lazsilvadev/lazrecon"
+                            ),  # Link para o repositório do projeto
+                            style=ft.ButtonStyle(
+                                padding=0
+                            ),  # Remove o espaço extra do botão
+                        ),
+                    ],
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
                 )
             ],
-            alignment=ft.MainAxisAlignment.START,
-        ),
-        # Autoria adicionada no canto direito inferior
-        ft.Row(
-            [
-                ft.Text(
-                    "Autoria: Laz Silva",
-                    size=12,
-                    italic=True,
-                    color=ft.Colors.BLUE_GREY_200,
-                )
-            ],
-            alignment=ft.MainAxisAlignment.END,
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=20,
         ),
     )
 
 
-ft.app(target=main)
+if __name__ == "__main__":
+    ft.app(target=main, assets_dir="assets")
