@@ -21,7 +21,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ## 🚀 O que ele faz?
 
 * 🚦 **Mapeamento Multi-status:** Identifica rotas ativas (200 OK) e restritas (403 Forbidden).
-* 🔍 **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e backups.
+* 🔍 **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e `backups`.
 * 📝 **Customização de Wordlists:** Liberdade total para o usuário carregar suas próprias listas de termos (.txt), permitindo ataques direcionados e maior precisão.
 * 🎭 **User-Agent Spoofing:** Técnicas para contornar bloqueios básicos de WAF.
 * 📊 **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
