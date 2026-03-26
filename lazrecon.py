@@ -6,6 +6,7 @@ import os
 import sys
 import datetime
 import re
+from urllib.parse import urlparse
 from fpdf import FPDF
 import ctypes
 
@@ -13,7 +14,6 @@ import ctypes
 if sys.platform == "win32":
     my_app_id = "laz.recon.fuzzer.v1"
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
-
 
 def main(page: ft.Page):
     page.title = "LazRecon v1.1 - Web Path Reconnaissance Tool"
@@ -26,7 +26,7 @@ def main(page: ft.Page):
     page.window.maximizable = False  # Desativa o botão de maximizar
 
     # 3. Centraliza a janela ao abrir
-    # Nem todas as versões/ambientes do Flet expõem `window_center` —
+    # Nem todas as versões/ambientes do Flet expõem `window_center` 
     # use hasattr para evitar AttributeError em runtime.
     if hasattr(page, "window_center"):
         try:
@@ -259,14 +259,17 @@ def main(page: ft.Page):
 
                 pdf.ln(4)
 
-            out_path = "relatorio_fuzzer.pdf"
+            # Garantir que a pasta exports exista e salvar o PDF lá
+            exports_dir = os.path.abspath("exports")
+            os.makedirs(exports_dir, exist_ok=True)
+            out_path = os.path.join(exports_dir, "relatorio_fuzzer.pdf")
             pdf.output(out_path)
             try:
                 # Tenta abrir automaticamente no Windows
-                os.startfile(os.path.abspath(out_path))
+                os.startfile(out_path)
             except Exception:
                 # Fallback: abrir via browser
-                webbrowser.open("file://" + os.path.abspath(out_path))
+                webbrowser.open("file://" + out_path)
             page.snack_bar = ft.SnackBar(ft.Text(f"PDF gerado: {out_path}"))
             page.snack_bar.open = True
             page.update()
@@ -352,8 +355,14 @@ def main(page: ft.Page):
         found_results.clear()
 
         # Criar pasta de achados para este alvo (findigns/<host>_YYYYMMDD_HHMMSS/html)
-        target_host = target.split("://")[-1].split("/")[0]
-        # sanitizar nome do host para ser um nome de pasta válido no Windows (remover ':' e outros)
+        # Extrair hostname sem porta (ex: 44.227.89.148 ao invés de 44.227.89.148:8220)
+        parsed = urlparse(target)
+        if parsed.hostname:
+            target_host = parsed.hostname
+        else:
+            # fallback robusto caso parsing falhe
+            target_host = target.split("://")[-1].split("/")[0].split(":")[0]
+        # sanitizar nome do host para ser um nome de pasta válido no Windows
         target_host = re.sub(r"[^0-9A-Za-z._-]", "_", target_host)
         ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         target_folder = os.path.join("findigns", f"{target_host}_{ts}", "html")
@@ -595,7 +604,6 @@ def main(page: ft.Page):
             spacing=20,
         ),
     )
-
 
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets")
