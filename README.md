@@ -37,7 +37,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 
 ## ⚡ Instalação e Execução Rápida
 
-O LazRecon foi projetado para ser configurado e executado com um único comando, automatizando a criação do ambiente virtual e a instalação de dependências.
+O **LazRecon** foi projetado para ser configurado e executado com um único comando, automatizando a criação do ambiente virtual e a instalação de dependências.
 
 ### 🪟 Windows (PowerShell)  
 ```bash
