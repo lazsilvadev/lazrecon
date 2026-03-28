@@ -57,7 +57,7 @@ chmod +x scripts/setup_poetry.sh
 ```bash
 poetry run python lazrecon.py
 ```
-* Modo Modular (Desenvolvimento): Para quem deseja explorar a arquitetura em src/.
+* **Modo Modular** (Desenvolvimento): Para quem deseja explorar a arquitetura em **src/**.
 ```bash
 poetry run python run.py
 ```
