@@ -35,32 +35,31 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 ![FPDF](https://img.shields.io/badge/FPDF-E91E63?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)
 ![Poetry](https://img.shields.io/badge/Poetry-60A5FA?style=for-the-badge&logo=python&logoColor=white)
 
-## ⚙️ Como Instalar e Usar
+## ⚡ Instalação e Execução Rápida
 
-### 1. Pré-requisitos
-* *Python 3.10 ou superior*
-* [Poetry](https://python-poetry.org/docs/#installation) *instalado*
+O LazRecon foi projetado para ser configurado e executado com um único comando, automatizando a criação do ambiente virtual e a instalação de dependências.
 
-### 1.1 Clonar o Repositório  
+### 🪟 Windows (PowerShell)  
 ```bash
-git clone https://github.com/lazsilvadev/lazrecon.git
-cd lazrecon  # Entre na pasta do projeto
+.\scripts\setup_poetry.ps1
 ```
-### 1.2 Usando Poetry (Recomendado)
+### 🐧 Linux / macOS
 ```bash
-poetry install # Instale as dependências
-
-poetry run python lazrecon.py # Inicie a GUI
+chmod +x scripts/setup_poetry.sh
+./scripts/setup_poetry.sh
 ```
-### 1.3 Usando Pip (Tradicional)
+**Nota:** Os scripts acima utilizam o Poetry para garantir que todas as versões das bibliotecas sejam idênticas às do desenvolvimento, evitando conflitos no seu Python global.
+
+### 🛠️ Opções de Execução
+* Modo Standalone (Arquivo Único): Ideal para uso rápido e portabilidade.
 ```bash
-python -m venv venv # Cria e ativa o ambiente virtual
-
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-
-pip install -r requirements.txt # Instale as dependências
-python lazrecon.py # Inicie a GUI
+poetry run python lazrecon.py
 ```
+* Modo Modular (Desenvolvimento): Para quem deseja explorar a arquitetura em src/.
+```bash
+poetry run python run.py
+```
+⚠️ **Requisito Único:** Para a execução automática dos scripts, certifique-se de ter o Python 3.10+ instalado e adicionado ao PATH do seu sistema.
+
 ## ⚖️ Aviso Legal (Disclaimer)
 Este projeto foi desenvolvido exclusivamente para fins educacionais e de estudo. O uso desta ferramenta em sistemas sem autorização prévia é ilegal e de inteira responsabilidade do usuário. **Use com ética.**
