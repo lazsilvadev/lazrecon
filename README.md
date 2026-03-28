@@ -3,7 +3,7 @@
  <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/d125f03d-4218-408c-ada2-bdb96b6ff597">
 </p>
 <p align="center">
-  <img src="screenshotlazrecon.jpg" alt="Interface do LazRecon v1.1" width="700">
+  <img src="assets/screenshotlazrecon.jpg" alt="Interface do LazRecon v1.1" width="700">
 </p>
 
 <p align="center">
