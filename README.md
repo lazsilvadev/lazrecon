@@ -52,15 +52,6 @@ chmod +x scripts/setup_poetry.sh
 ```
 **Nota:** Os scripts acima utilizam o Poetry para garantir que todas as versões das bibliotecas sejam idênticas às do desenvolvimento, evitando conflitos no seu Python global.
 
-### 🛠️ Opções de Execução
-* **Modo Standalone** (Arquivo Único): Ideal para uso rápido e portabilidade.
-```bash
-poetry run python lazrecon.py
-```
-* **Modo Modular** (Desenvolvimento): Para quem deseja explorar a arquitetura em **src/**.
-```bash
-poetry run python run.py
-```
 ⚠️ **Requisito Único:** Para a execução automática dos scripts, certifique-se de ter o Python 3.10+ instalado e adicionado ao PATH do seu sistema.
 
 ## ⚖️ Aviso Legal (Disclaimer)
