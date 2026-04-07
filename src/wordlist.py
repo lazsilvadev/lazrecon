@@ -1,101 +1,54 @@
-"""Gerenciamento de wordlists e presets."""
+"""Gerenciamento de wordlists e presets para o LazRecon."""
 
 import os
 
+# Wordlist padrão otimizada para a v1.2
 DEFAULT_WORDLIST = [
-    "admin",
-    "administrator",
-    "login",
-    "logon",
-    "wp-admin",
-    "panel",
-    "painel",
-    "config",
-    "conf",
-    "backup",
-    "bak",
-    "old",
-    "db",
-    "database",
-    "sql",
-    "setup",
-    "dev",
-    "development",
-    "v1",
-    "v2",
-    "api",
-    "test",
-    "testing",
-    "src",
-    "git",
-    "phpmyadmin",
-    "server-status",
-    "dashboard",
-    "console",
-    "shell",
-    "uploads",
-    "files",
-    "images",
-    "img",
-    "assets",
-    "css",
-    "js",
-    "javascript",
-    "robots.txt",
-    "info.php",
-    "phpinfo.php",
-    ".htaccess",
-    ".env",
-    "config.php",
-    "README.md",
-    "license.txt",
-    "index.php.bak",
-    "user.txt",
-    "root.txt",
-    ".htpasswd",
-    ".git",
-    ".svn",
-    ".ssh",
-    "cgi-bin",
-    "server-info",
-    "logs",
-    "error_log",
-    "includes",
-    "inc",
-    "lib",
-    "library",
-    "vendor",
-    "node_modules",
-    "system",
-    "core",
-    "bin",
-    "etc",
-    "var",
-    "tmp",
-    "admin/auth",
-    "admin/config",
-    "admin/db",
-    "private",
-    "secret",
-    "secure",
-    "restricted",
-    "auth",
-    "users",
-    "accounts",
-    "setup.php",
-    "install.php",
-    "status.php",
-    "mysql",
-    "db_backup",
-    "dump.sql",
-    "database.sql",
+    # --- Acesso e Painéis ---
+    "admin", "administrator", "login", "logon", "wp-admin", "panel", "painel",
+    "dashboard", "console", "shell", "admin/auth", "admin/config", "admin/db",
+    
+    # --- Configurações e Sensíveis ---
+    "config", "conf", "config.php", "settings.py", "web.config", ".env", 
+    ".htaccess", ".htpasswd", ".git", ".svn", ".ssh", "robots.txt",
+    
+    # --- Backups e Dados ---
+    "backup", "bak", "old", "db", "database", "sql", "db_backup", 
+    "dump.sql", "database.sql", "index.php.bak", "www.zip", "backup.zip",
+    
+    # --- Desenvolvimento e APIs ---
+    "dev", "development", "test", "testing", "src", "v1", "v2", "api", 
+    "api/v1", "api/v2", "swagger-ui.html", "api-docs", "node_modules", 
+    "vendor", "composer.json", "package.json", "docker-compose.yml",
+    
+    # --- Sistema e Informação ---
+    "info.php", "phpinfo.php", "server-status", "server-info", "status.php",
+    "setup", "setup.php", "install.php", "README.md", "license.txt",
+    ".well-known/security.txt", "cgi-bin", "logs", "error_log",
+    
+    # --- Pastas de Arquivos ---
+    "uploads", "files", "images", "img", "assets", "css", "js", "javascript",
+    "includes", "inc", "lib", "library", "private", "secret", "secure",
+    
+    # --- Infraestrutura ---
+    "mysql", "phpmyadmin", "system", "core", "bin", "etc", "var", "tmp",
+    "users", "accounts", "auth", "restricted"
 ]
 
-
 def load_wordlist(path: str) -> list:
-    """Lê uma wordlist de arquivo; retorna lista de linhas não vazias e sem espaços."""
+    """
+    Lê uma wordlist de arquivo de forma eficiente.
+    Remove duplicatas e linhas vazias, ignorando erros de encoding.
+    """
     if not path or not os.path.exists(path):
         return []
-    with open(path, "r", encoding="utf-8") as f:
-        return [line.strip() for line in f.readlines() if line.strip()]
-
+        
+    try:
+        # 'errors="ignore"' evita crashes com caracteres binários em wordlists grandes
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            # Usar set comprehension remove duplicatas na leitura
+            words = {line.strip() for line in f if line.strip()}
+            return list(words)
+    except Exception:
+        # Retorna lista vazia em caso de erro de permissão ou leitura
+        return []
