@@ -3,12 +3,12 @@
  <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/d125f03d-4218-408c-ada2-bdb96b6ff597">
 </p>
 <p align="center">
-  <img src="assets/screenshotlazrecon.jpg" alt="Interface do LazRecon v1.1" width="700">
+  <img src="assets/lazrecon v1.2.jpg" alt="Interface do LazRecon v1.1" width="700">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1.0-blue" alt="Versão">
-  <img src="https://img.shields.io/badge/status-active-success" alt="Status">
+  <img src="https://img.shields.io/badge/version-1.2.0-blue?style=for-the-badge&logo=github" alt="Versão">
+  <img src="https://img.shields.io/badge/status-active-success?style=for-the-badge" alt="Status">
 </p>
 
 ## 🕵️‍♂️ About
