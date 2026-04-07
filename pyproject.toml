@@ -1,24 +1,37 @@
-[tool.poetry]
+[project]
 name = "lazrecon"
-version = "1.1.0"
-description = "Ferramenta de reconhecimento web e fuzzing de diretórios com interface gráfica moderna."
-authors = ["Laz Silva <lazsilvadev@gmail.com>"]
+version = "1.2.0"
+description = "Professional Web Reconnaissance and Fuzzing Tool"
 readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Laz Silva" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+]
 
-packages = [{include = "lazrecon.py"}] 
+dependencies = [
+    "flet==0.28.3",
+    "flet-desktop==0.28.3",
+    "fpdf2>=2.8.1",
+    "httpx[http2]>=0.27.2",
+    "pillow>=12.1.1",
+    "pystray>=0.19.5",
+]
 
-# package-mode = false 
+[project.scripts]
+lazrecon = "ui:main" 
 
-[tool.poetry.dependencies]
-python = ">=3.13"
-flet = "0.28.3"
-requests = "^2.32.3"
-fpdf = "^1.7.2"
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pyinstaller>=6.19.0",
+]
 
-[tool.poetry.scripts]
-
-lazrecon = "lazrecon:main" 
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+managed = true
+package = true
