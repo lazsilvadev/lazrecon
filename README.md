@@ -20,39 +20,48 @@
 ## 🎯 Proposta
 O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para identificar vetores de ataque e caminhos sensíveis em segundos, sem a complexidade de grandes suítes de pentest.
 
-## 🚀 O que ele faz?
+## 🚀 Funcionalidades & Destaques Técnicos
 
-* 🚦 **Mapeamento Multi-status:** Identifica rotas ativas (200 OK) e restritas (403 Forbidden).
-* 🔍 **Identificação de Arquivos Críticos:** Foco em `.env`, `.htaccess`, `.htpasswd` e `backups`.
-* 📝 **Customização de Wordlists:** Liberdade total para o usuário carregar suas próprias listas de termos (.txt), permitindo ataques direcionados e maior precisão.
-* 🎭 **User-Agent Spoofing:** Técnicas para contornar bloqueios básicos de WAF.
-* 📊 **Relatórios Automáticos:** Exportação dos resultados encontrados diretamente para um arquivo PDF organizado. 
+* 🌀 **Motor Assíncrono (HTTPX/Asyncio)**: Gerenciamento de concorrência otimizado para scans ultra-rápidos, garantindo estabilidade mesmo em grandes wordlists.
+* 🎭 **Evasão e Stealth**: Rotação dinâmica de User-Agents e suporte a Headers customizados para contornar proteções e mecanismos de defesa básicos.
+* 🛡️ **Inteligência de WAF**: Identifica assinaturas de firewalls (Cloudflare, Sucuri, AWS WAF, etc.) antes do início do scan, permitindo ajustar a estratégia de ataque.
+* 🔒 **Navegação Segura (Anti-XSS)**: Módulo de utilitários que aplica Sanitize HTML e Content Security Policy (CSP) para analisar respostas do alvo sem riscos de execução de scripts maliciosos.
+* 📊 **Relatórios Profissionais**: Geração automática de relatórios em PDF (report.py) com classificação de severidade baseada em Status Codes e timestamps.
+* 📥 **System Tray Integration**: Suporte a ícone na barra de tarefas para gerenciamento discreto, permitindo ocultar a janela durante processos de longa duração.
+* 🌍 **Sistema Multi-idioma (i18n)**: Interface totalmente traduzida para Português (PT) e Inglês (EN), com troca dinâmica em tempo real e arquitetura preparada para novas expansões.
 
 ## ✨ Tecnologias
 *Utilizadas no desenvolvimento do **LazRecon:***
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Flet](https://img.shields.io/badge/Flet-42a5f5?style=for-the-badge&logo=flutter&logoColor=white)
-![Requests](https://img.shields.io/badge/Requests-FFD43B?style=for-the-badge&logo=python&logoColor=black)
-![FPDF](https://img.shields.io/badge/FPDF-E91E63?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)
-![Poetry](https://img.shields.io/badge/Poetry-60A5FA?style=for-the-badge&logo=python&logoColor=white)
+![HTTPX](https://img.shields.io/badge/HTTPX-000000?style=for-the-badge&logo=python&logoColor=white)
+![UV](https://img.shields.io/badge/UV-EAD07D?style=for-the-badge&logo=astral&logoColor=black)
 
 ## ⚡ Instalação e Execução Rápida
 
-O **LazRecon** foi projetado para ser configurado e executado com um único comando, automatizando a criação do ambiente virtual e a instalação de dependências.
+O **LazRecon** utiliza o motor UV para garantir uma instalação quase instantânea, isolando as dependências do seu sistema global.
 
-### 🪟 Windows (PowerShell)  
+### 🪟 Windows
+Você tem duas formas de iniciar no Windows:
+* **Via PowerShell**
 ```bash
-.\scripts\setup_poetry.ps1
+.\setup.ps1
 ```
-### 🐧 Linux / macOS
-```bash
-chmod +x scripts/setup_poetry.sh
-./scripts/setup_poetry.sh
-```
-**Nota:** Os scripts acima utilizam o Poetry para garantir que todas as versões das bibliotecas sejam idênticas às do desenvolvimento, evitando conflitos no seu Python global.
+* **Modo Simples**:
 
-⚠️ **Requisito Único:** Para a execução automática dos scripts, certifique-se de ter o Python 3.10+ instalado e adicionado ao PATH do seu sistema.
+1. Localize o arquivo LazRecon.bat na pasta do projeto.
+2. Dê 2 cliques no arquivo. Ele abrirá o terminal, configurará tudo e iniciará a interface sozinho.
+
+### 🐧 Linux / MacOS
+```bash
+# 1. Dê permissão de execução
+chmod +x setup.sh
+
+# 2. Inicie a configuração e o programa
+./setup.sh
+```
+⚠️ **Requisito Base**: Ter qualquer versão de Python instalada e no PATH para que o instalador possa iniciar o processo. O sistema cuidará do resto para garantir o uso da **3.12**.
 
 ## ⚖️ Aviso Legal (Disclaimer)
-Este projeto foi desenvolvido exclusivamente para fins educacionais e de estudo. O uso desta ferramenta em sistemas sem autorização prévia é ilegal e de inteira responsabilidade do usuário. **Use com ética.**
+Esta ferramenta foi desenvolvida para fins estritamente educacionais e auditorias de segurança autorizadas. O uso do **LazRecon** contra alvos sem permissão prévia é **ilegal**. O desenvolvedor não se responsabiliza por quaisquer danos ou uso indevido.
