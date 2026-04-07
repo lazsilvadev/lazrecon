@@ -28,7 +28,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 * 🔒 **Navegação Segura (Anti-XSS)**: Módulo de utilitários que aplica Sanitize HTML e Content Security Policy (CSP) para analisar respostas do alvo sem riscos de execução de scripts maliciosos.
 * 📊 **Relatórios Profissionais**: Geração automática de relatórios em PDF (report.py) com classificação de severidade baseada em Status Codes e timestamps.
 * 📥 **System Tray Integration**: Suporte a ícone na barra de tarefas para gerenciamento discreto, permitindo ocultar a janela durante processos de longa duração.
-* 🌍 **Sistema Multi-idioma (i18n)**: Interface totalmente traduzida para Português (PT) e Inglês (EN), com troca dinâmica em tempo real e arquitetura preparada para novas expansões.
+* 🌍 **Sistema Multi-idioma (i18n)**: Interface totalmente traduzida para Português (BR) e Inglês (EN), com troca dinâmica em tempo real e arquitetura preparada para novas expansões.
 
 ## ✨ Tecnologias
 *Utilizadas no desenvolvimento do **LazRecon:***
