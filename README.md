@@ -40,7 +40,7 @@ O projeto prioriza a **objetividade**. É uma solução enxuta desenhada para id
 
 ## ⚡ Instalação e Execução Rápida
 
-O **LazRecon** utiliza o motor UV para garantir uma instalação quase instantânea, isolando as dependências do seu sistema global.
+O **LazRecon** utiliza o motor **UV** para garantir uma instalação quase instantânea, isolando as dependências do seu sistema global.
 
 ### 🪟 Windows
 Você tem duas formas de iniciar no Windows:
@@ -50,7 +50,7 @@ Você tem duas formas de iniciar no Windows:
 ```
 * **Modo Simples**:
 
-1. Localize o arquivo LazRecon.bat na pasta do projeto.
+1. Localize o arquivo **LazRecon.bat** na pasta do projeto.
 2. Dê 2 cliques no arquivo. Ele abrirá o terminal, configurará tudo e iniciará a interface sozinho.
 
 ### 🐧 Linux / MacOS
