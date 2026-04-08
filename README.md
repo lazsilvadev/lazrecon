@@ -49,7 +49,7 @@ LAZRECON/
 │   ├── translations.py # Dicionários e lógica de internacionalização (i18n)
 │   ├── ui.py           # Componentes visuais e design da interface
 │   ├── utils.py        # Funções de suporte e helpers técnicos
-│   └── wordlist.py      # Dicionários de termos e listas para reconhecimento
+│   └── wordlist.py     # Dicionários de termos e listas para reconhecimento
 ├── tests/              # Testes unitários e de integração (Garante estabilidade)
 ├── .env.example        # Modelo de configuração para variáveis de ambiente e APIs
 ├── .gitignore          # Filtro de arquivos para o controle de versão
@@ -73,8 +73,13 @@ LAZRECON/
 ![UV](https://img.shields.io/badge/UV-EAD07D?style=for-the-badge&logo=astral&logoColor=black)
 
 ## ⚡ Instalação e Execução Rápida
-
 O **LazRecon** utiliza o motor **UV** para garantir uma instalação quase instantânea, isolando as dependências do seu sistema global.
+
+1. Clone o repositório:
+```
+git clone https://github.com/lazsilvadev/lazrecon.git
+cd lazrecon
+```
 
 ### 🪟 Windows
 Você tem duas formas de iniciar no Windows:
