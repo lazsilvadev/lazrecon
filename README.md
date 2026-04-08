@@ -61,6 +61,10 @@ chmod +x setup.sh
 # 2. Inicie a configuração e o programa
 ./setup.sh
 ```
+Se você já configurou o ambiente e quer apenas reabrir a ferramenta via VS Code ou Terminal:
+```
+uv run main.py
+```
 ⚠️ **Requisito Base**: Ter qualquer versão de Python instalada e no PATH para que o instalador possa iniciar o processo. O sistema cuidará do resto para garantir o uso da **3.12**.
 
 ## ⚖️ Aviso Legal (Disclaimer)
