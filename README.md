@@ -49,12 +49,15 @@ LAZRECON/
 │   ├── translations.py # Dicionários e lógica de internacionalização (i18n)
 │   ├── ui.py           # Componentes visuais e design da interface
 │   ├── utils.py        # Funções de suporte e helpers técnicos
-│   └── wordlist.py     # Dicionários de termos e listas para reconhecimento
+│   └── wordlist.py      # Dicionários de termos e listas para reconhecimento
+├── tests/              # Testes unitários e de integração (Garante estabilidade)
+├── .env.example        # Modelo de configuração para variáveis de ambiente e APIs
 ├── .gitignore          # Filtro de arquivos para o controle de versão
 ├── .python-version     # Definição da versão global do interpretador (3.12)
 ├── LazRecon.bat        # Loader inteligente (Ponto de entrada Windows)
 ├── main.py             # Arquivo de inicialização da aplicação (Entry point)
 ├── pyproject.toml      # Manifesto de dependências e metadados (UV/Poetry)
+├── requirements.txt    # Fallback de dependências para compatibilidade universal
 ├── setup.ps1 / .sh     # Instaladores automatizados (Windows/Linux)
 └── uv.lock             # Registro determinístico de versões de dependências
 ```
