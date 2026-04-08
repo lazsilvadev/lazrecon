@@ -42,8 +42,18 @@ if not exist "%VENV_PATH%" (
     echo [+] Workspace: Ativo
     echo ----------------------------------------------------
     echo [LOGS]:
+
+    :: --- CORREÇÃO DE IDIOMA E ENCODE ---
+    :: Limpa variáveis que podem forçar o PT-BR
+    set LANG=en_US.UTF-8
+    set LC_ALL=en_US.UTF-8
+    set LANGUAGE=en_US.UTF-8
     
-    :: Execução direta
+    :: Força o Python a ignorar a localidade do Windows e usar UTF-8
+    set PYTHONIOENCODING=utf-8
+    set PYTHONUTF8=1
+    
+    :: Execução direta via motor UV
     uv run main.py
 )
 
