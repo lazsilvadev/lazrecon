@@ -75,7 +75,7 @@ LAZRECON/
 ## ⚡ Instalação e Execução Rápida
 O **LazRecon** utiliza o motor **UV** para garantir uma instalação quase instantânea, isolando as dependências do seu sistema global.
 
-1. Clone o repositório:
+1. **Clone o repositório**:
 ```
 git clone https://github.com/lazsilvadev/lazrecon.git
 cd lazrecon
