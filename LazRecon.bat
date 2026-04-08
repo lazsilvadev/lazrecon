@@ -1,15 +1,58 @@
 @echo off
+setlocal
 title LazRecon v1.2.0 - Loader
 
-:: %~dp0 garante que o Windows sempre olhe para a pasta onde o .bat está guardado
-set SCRIPT_PATH=%~dp0setup.ps1
+:: Configuração de Cores (Fundo preto, texto verde)
+color 0A
 
-:: Verifica se o setup.ps1 realmente existe lá antes de tentar rodar
-if exist "%SCRIPT_PATH%" (
-    powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_PATH%"
+set "BASE_DIR=%~dp0"
+set "SETUP_SCRIPT=%BASE_DIR%setup.ps1"
+set "VENV_PATH=%BASE_DIR%.venv"
+
+:: 1. Checagem de integridade do pacote
+if not exist "%SETUP_SCRIPT%" (
+    echo [!] ERRO CRITICO: Arquivo setup.ps1 nao encontrado.
+    echo Certifique-se de extrair todos os arquivos do ZIP.
+    pause
+    exit /b
+)
+
+:: 2. Checagem do motor UV
+where uv >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo [!] AVISO: O gerenciador 'uv' nao foi detectado no seu sistema.
+    echo Tentando prosseguir via instalador...
+    timeout /t 3 >nul
+)
+
+:: 3. Fluxo de Inicialização Inteligente
+if not exist "%VENV_PATH%" (
+    echo ====================================================
+    echo           CONFIGURACAO INICIAL DO LAZRECON
+    echo ====================================================
+    echo [*] Criando ambiente virtual e instalando dependencias...
+    powershell -NoProfile -ExecutionPolicy Bypass -File "%SETUP_SCRIPT%"
 ) else (
-    echo [!] Erro: Nao foi possivel encontrar o arquivo setup.ps1 em:
-    echo %~dp0
-    echo Certifique-se de que o .bat esteja na mesma pasta do projeto.
+    cls
+    echo ====================================================
+    echo           LAZRECON v1.2.0 - ASYNC ENGINE
+    echo ====================================================
+    echo [+] Ambiente: OK (.venv)
+    echo [+] Motor: HTTPX / Asyncio
+    echo [+] Workspace: Ativo
+    echo ----------------------------------------------------
+    echo [LOGS]:
+    
+    :: Execução direta
+    uv run main.py
+)
+
+:: 4. Captura de Erros Finais
+if %ERRORLEVEL% neq 0 (
+    echo.
+    echo [!] Ocorreu um problema ao rodar o LazRecon.
+    echo [!] Codigo de erro: %ERRORLEVEL%
     pause
 )
+
+endlocal
