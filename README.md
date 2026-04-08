@@ -65,7 +65,7 @@ Se você já configurou o ambiente e quer apenas reabrir a ferramenta via VS Cod
 ```
 uv run main.py
 ```
-⚠️ **Requisito Base**: Ter qualquer versão de Python instalada e no PATH para que o instalador possa iniciar o processo. O sistema cuidará do resto para garantir o uso da **3.12**.
+⚠️ **Requisito Base**: Python no **PATH**. O **UV** gerencia automaticamente o runtime **3.12** especificado para o projeto.
 
 ## ⚖️ Aviso Legal (Disclaimer)
 Esta ferramenta foi desenvolvida para fins estritamente educacionais e auditorias de segurança autorizadas. O uso do **LazRecon** contra alvos sem permissão prévia é **ilegal**. O desenvolvedor não se responsabiliza por quaisquer danos ou uso indevido.
