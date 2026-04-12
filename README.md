@@ -77,7 +77,7 @@ O **LazRecon** utiliza o motor **UV** para garantir uma instalação quase insta
 
 1. **Clone o repositório**:
 ```
-git clone https://github.com/lazsilvadev/lazrecon.git
+git clone https://github.com/lazgomes/lazrecon.git
 cd lazrecon
 ```
 
